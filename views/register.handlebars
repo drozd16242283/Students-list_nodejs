@@ -1,0 +1,49 @@
+<h2 align="center">Регистрация</h2>
+
+<div class="container-fluid">
+    <form action="/register" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="inputName" class="col-sm-1 control-label">Имя</label>
+            <div class="col-sm-5">
+                <input type="text" name="name" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSecoundName" class="col-sm-1 control-label">Фамилия</label>
+            <div class="col-sm-5">
+                <input type="text" name="secName" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-1 control-label">Email</label>
+            <div class="col-sm-5">
+                <input type="email" name="email" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputGroup" class="col-sm-1 control-label">Группа</label>
+            <div class="col-sm-5">
+                <input type="text" name="group" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMark" class="col-sm-1 control-label">Оцінка</label>
+            <div class="col-sm-5">
+                <input type="number" name="mark" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3">
+                <button type="submit" class="btn btn-success btn-lg">Регистрация</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{{#if error}}
+    <ul>
+    {{#each error}}
+        <li>{{this.msg}}</li>
+    {{/each}}
+    </ul>
+{{/if}}

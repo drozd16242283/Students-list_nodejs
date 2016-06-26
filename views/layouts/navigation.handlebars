@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Поиск студентов</a>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <form action="/" method="post" class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" name="text" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Найти</button>
+                    </form>
+                </div>
+                <div class="col-md-2 col-md-push-2">
+                    <div class="navbar-form navbar-right">
+                        <a href="/register" class="btn btn-primary">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    {{{body}}}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
