@@ -1,6 +1,6 @@
 var express = require('express');
-var router = express.Router();
-var model = require('../models');
+var router  = express.Router();
+var model   = require('../models');
 
 
 router.get('/', function (req, res){
@@ -13,6 +13,7 @@ router.get('/', function (req, res){
             dataArr.push(data[i]);
         }
     });
+    console.log(dataArr);
     res.render('index', {
         title: 'Поиск студентов',
         data: dataArr

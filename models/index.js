@@ -1,4 +1,4 @@
-var db = require('./model');
+var db = require('./student');
 
 exports.findAll = function(cb) {
     db.find({}, cb);

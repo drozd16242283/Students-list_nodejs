@@ -1,0 +1,15 @@
+{
+  "port": 5000,
+  "db": {
+    "dbAdress": "mongodb://localhost/students"
+  },
+  "session": {
+    "secret": "secret_key",
+    "resave": false,
+    "saveUninitialized": true,
+    "cookie": {
+      "secure": true,
+      "maxAge": 999999999999
+    }
+  }
+}

@@ -1,16 +1,17 @@
 var express = require('express');
-var router = express.Router();
-var model = require('../models');
+var router  = express.Router();
+var model   = require('../models');
 
 
 
-router.get('/register', function(req, res){
-    res.render('register', {
-        title: 'Регистрация'
+router.get('/info', /* middleware (cheek if auth) */ function(req, res) {
+    res.render('info', {
+        layout: 'header',
+        title: 'Информация о студенте'
     });
 });
 
-router.post('/register', function(req, res){
+router.post('/info', function(req, res) {
     req.checkBody('name', 'Error: name is invalid').len(2, 15);
     req.checkBody('secName', 'Error: surname is invalid').len(2, 15);
     req.checkBody('email', 'Error: email is invalid').isEmail().len(4, 20);
@@ -29,7 +30,7 @@ router.post('/register', function(req, res){
             mark: req.body.mark
         };
 
-        model.insertIntoDB(data, function(err){
+        model.insertIntoDB(data, function(err) {
             (err) ? console.error(err) : res.redirect('/');
         });
     }
