@@ -1,5 +1,5 @@
 {
-  "port": 5000,
+  "port": 8080,
   "db": {
     "dbAdress": "mongodb://localhost/students"
   },
@@ -8,7 +8,6 @@
     "resave": false,
     "saveUninitialized": true,
     "cookie": {
-      "secure": true,
       "maxAge": 999999999999
     }
   }

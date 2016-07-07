@@ -15,6 +15,11 @@
             <button type="submit" class="btn btn-warning btn-lg">Войти</button>
         </form>
 
+        {{#if error}}
+            <hr />
+            <div class="alert-danger"><h3>{{error}}</h3></div>
+        {{/if}}
+
         <hr />
 
         <p>Нужен аккаунт? <a href="/signup">Регистрация</a></p>

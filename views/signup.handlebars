@@ -4,17 +4,22 @@
 
         <form action="/signup" method="post">
             <div class="form-group">
-                <label>Логин:</label>
-                <input type="text" class="form-control" name="login">
+                <label>Логин</label>
+                <input type="text" class="form-control" name="usernameSignup" required />
             </div>
             <div class="form-group">
-                <label>Пароль:</label>
-                <input type="password" class="form-control" name="password">
+                <label>Пароль</label>
+                <input type="password" class="form-control" name="passwordSignup" required />
             </div>
 
             <button type="submit" class="btn btn-warning btn-lg">Зарегистрироваться</button>
 
         </form>
+
+        {{#if error}}
+            <hr />
+            <div class="alert-danger"><h3>{{error}}</h3></div>
+        {{/if}}
 
         <hr />
 

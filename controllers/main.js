@@ -1,19 +1,20 @@
 var express = require('express');
 var router  = express.Router();
-var model   = require('../models');
+var models   = require('../models/student');
+// Define the Student model
+var Student = models.Student;
 
-
-router.get('/', function (req, res){
+router.get('/', function (req, res) {
     var dataArr = [];
 
-    model.findAll(function(err, data){
+    Student.findAll(function(err, data) {
         if (err) throw err;
 
-        for (var i in data){
+        for (var i in data) {
             dataArr.push(data[i]);
         }
     });
-    console.log(dataArr);
+    console.log(req.user);
     res.render('index', {
         title: 'Поиск студентов',
         data: dataArr
@@ -23,7 +24,7 @@ router.get('/', function (req, res){
 router.post('/', function(req, res) {
     var query = req.body.text;
 
-    model.findSearch(query, function (err, data) {
+    Student.findSearch(query, function (err, data) {
         if (data) {
             res.render('index', {
                 name: data.name,

@@ -1,20 +1,9 @@
-var mongoose   = require('mongoose');
-var config   = require('../config');
-
-var Schema = mongoose.Schema;
-var db = mongoose.connection;
-
-// connect to the MongoDB
-mongoose.connect(config.get('db:dbAdress'));
-
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('connect', function () {
-    console.log('Success');
-});
+var mongoose = require('mongoose');
+var db       = require('../config/db');
 
 
-// Create Schema
-var Student = new Schema({
+// Create Student Schema
+var studentSchema = new mongoose.Schema({
     name: String,
     secoundName: String,
     email: String,
@@ -23,7 +12,24 @@ var Student = new Schema({
 });
 
 
+// Define some STATICS methods
+studentSchema.statics.findAll = function(cb) {
+    return this.find({}, cb);
+};
+
+studentSchema.statics.findSearch = function(searchData, cb) {
+    return this.findOne({ $or : [ { name: searchData }, { secoundName: searchData } ] }, cb);
+};
+
+studentSchema.statics.insertIntoDB = function(data, cb) {
+    // Create instance of Student (this)
+    var newStudent = new this(data);
+
+    newStudent.save(cb);
+};
 
 
+Student = mongoose.model('student', studentSchema);
 
-module.exports = mongoose.model('Student', Student);
+// Exports Student model
+exports.Student = Student;
