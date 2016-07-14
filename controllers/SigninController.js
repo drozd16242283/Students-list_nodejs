@@ -1,6 +1,7 @@
 var express  = require('express');
 var router   = express.Router();
 var passport = require('passport');
+var uuid     = require('node-uuid');
 
 
 router.get('/signin', function(req, res) {
@@ -13,10 +14,13 @@ router.get('/signin', function(req, res) {
 
 router.post('/signin',
     passport.authenticate('signin', {
-        successRedirect: '/',
         failureRedirect: '/signin',
         failureFlash: true
-    })
+    }),
+    function(req, res) {
+        res.cookie('IsLogin', uuid.v1(), { maxAge: 60 * 1000000 });
+        res.redirect('/');
+    }
 
 );
 
